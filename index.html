@@ -18,6 +18,21 @@
       },
       {
         "phrase": "Если ты будешь усердно работать по 8 часов в день, то обязательно станешь боссом и начнешь работать по 12"
+      },
+      {
+        "phrase": "Чем дальше продвигается цивилизация, тем беспомощнее становится человек при отключении электричества"
+      },
+      {
+        "phrase": "Можно обеспечить защиту от дурака, но только от неизобретательного",
+        "signature": "«Закон Кейсера»"
+      },
+      {
+        "phrase": "Инженерное искусство — это способность за 1 миллион долларов сделать то, что каждый дурак может сделать за 5 миллионов",
+        "signature": "Артур Меллен Веллингтон"
+      },
+      {
+        "phrase": "Никогда не известно, для чего нужна лишняя деталь, пока ее не выбросишь",
+        "signature": "«Принцип лишней детали»"
       }
     ]
   </script>
@@ -83,7 +98,7 @@
     const quotes = JSON.parse(jsonQuotes);
 
     let randomIndex = getRandomInt(quotes.length - 1);
-    quoteElement.textContent = `«${quotes[randomIndex].phrase}»`;
+    quoteElement.textContent = quotes[randomIndex].phrase;
     authorElement.textContent = quotes[randomIndex].signature;
   </script>
 
