@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Настроение</title>
   <script id="quotes_json" type="application/json">
     [
@@ -19,7 +21,75 @@
       }
     ]
   </script>
+  <link href="https://fonts.googleapis.com/css?family=Amatic+SC" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </head>
 <body>
+  <header>
+    <img src="img/Nyancat.png" class="img-responsive">
+  </header>
+
+  <main>
+    <div class="inner">
+      <h1 id="quote" class="text phrase"></span>
+      <h2 id="author" class="text author"></span>
+    </div>
+  </main>
+
+  <style>
+    body {
+      background-color: whitesmoke;
+      margin: 0;
+    }
+    .text {
+      font-family: 'Amatic SC', cursive;
+    }
+    .phrase {
+      font-weight: bold;
+    }
+    .author {
+      font-weight: normal;
+    }
+    header {
+      width: 100vw;
+      height: 15vh;
+      padding: 2.5vh;
+    }
+    main {
+      width: 100%;
+      height: 85vh;
+      display: table;
+      padding: 5vh;
+    }
+    .inner {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+    .img-responsive {
+      height: 100%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+
+  <script>
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * max);
+    }
+    const quoteElement = document.getElementById("quote");
+    const authorElement = document.getElementById("author");
+    const jsonQuotes = document.getElementById("quotes_json").innerHTML;
+    const quotes = JSON.parse(jsonQuotes);
+
+    let randomIndex = getRandomInt(quotes.length - 1);
+    quoteElement.textContent = `«${quotes[randomIndex].phrase}»`;
+    authorElement.textContent = quotes[randomIndex].signature;
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </body>
 </html>
